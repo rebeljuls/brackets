@@ -5,9 +5,8 @@ module.exports = function check(str, bracketsConfig) {
     if (str.length %2 != 0) {
       return false;
     };
-    for (let j = 0; j < i.length; j++){
-      let currentSymbol = str[i][0];
-    }
+         let currentSymbol = str[i][0];
+  
     if (bracketsConfig.includes(currentSymbol)){
       stack.push(currentSymbol);
        }
