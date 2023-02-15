@@ -5,9 +5,11 @@ module.exports = function check(str, bracketsConfig) {
     if (str.length %2 != 0) {
       return false;
     };
-         let currentSymbol = str[i][0];
   
-    if (bracketsConfig.includes(currentSymbol)){
+   for ( let j = 1; j < bracketsConfig.length; j++){
+         let currentSymbol = str[i];
+  
+     if (bracketsConfig[j][0].includes(currentSymbol)) {
       stack.push(currentSymbol);
        }
        else {
@@ -15,16 +17,22 @@ module.exports = function check(str, bracketsConfig) {
           return false;
         }
        
-  
+       
+         let pair = bracketsConfig[j][1];
         let topBrackets = stack[stack.length-1];
-        if (bracketsConfig[currentSymbol] === topBrackets) {
+        if (pair[currentSymbol] === topBrackets) {
           stack.pop();
         }
-        else {
+
+         else {
           return false;
         }
+        
+
        }
   }
+ 
   return stack.length === 0;
 }
 
+}
